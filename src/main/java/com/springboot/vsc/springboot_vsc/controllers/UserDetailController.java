@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.springboot.vsc.springboot_vsc.domain.user.model.MUser;
 import com.springboot.vsc.springboot_vsc.domain.user.service.UserService;
 import com.springboot.vsc.springboot_vsc.form.UserDetailForm;
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @RequestMapping ("/user" )
+@Slf4j
 public class UserDetailController {
     @Autowired
     private UserService userService;
@@ -40,10 +42,16 @@ public class UserDetailController {
     /** User update process */
     @PostMapping(value = "/detail", params = "update")
     public String updateUser(UserDetailForm form , Model model ) {
-        // Update user
-        userService .updateUserOne(form.getUserId(),
-            form .getPassword(),
-            form .getUserName());
+
+        try {
+            // Update user
+            userService .updateUserOne(form.getUserId(),
+                form .getPassword(),
+                form .getUserName());            
+        } catch (Exception e ) {
+            log .error("Error in user update" , e );
+        }
+        
         // Redirect to user list screen
         return "redirect:/user/list";
     }

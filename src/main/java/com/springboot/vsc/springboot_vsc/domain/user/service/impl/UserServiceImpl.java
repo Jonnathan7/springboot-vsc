@@ -1,7 +1,7 @@
 package com.springboot.vsc.springboot_vsc.domain.user.service.impl;
 
 import java.util.List;
-
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.springboot.vsc.springboot_vsc.domain.user.model.MUser;
@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
     /** Get user */
     @Override
     public List<MUser> getUsers(MUser user) {
-        return mapper .findMany(user );
+        return mapper.findMany(user );
     }
     /** Get user(1record) */
     @Override
@@ -31,11 +31,14 @@ public class UserServiceImpl implements UserService {
         return mapper.findOne(userId );
     }
     /** Update user */
+    @Transactional
     @Override
     public void updateUserOne(String userId ,
         String password ,
         String userName) {
         mapper.updateOne(userId, password, userName);
+        // Raise an exception for trx testing
+        //int i = 1 / 0;
     }
     /** Delete user */
     @Override
