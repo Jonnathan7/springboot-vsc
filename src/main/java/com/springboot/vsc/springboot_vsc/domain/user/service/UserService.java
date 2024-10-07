@@ -16,4 +16,6 @@ public interface UserService {
           String userName);
      /** Delete user */
      public void deleteUserOne(String userId);
+     /** Get login user information */
+     public MUser getLoginUser(String userId);        
 }

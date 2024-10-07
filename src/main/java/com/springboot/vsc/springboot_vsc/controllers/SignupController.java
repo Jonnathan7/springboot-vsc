@@ -23,7 +23,7 @@ import com.springboot.vsc.springboot_vsc.form.SignupForm;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@RequestMapping("/user" )
+@RequestMapping("/user")
 @Slf4j
 public class SignupController {
     @Autowired
