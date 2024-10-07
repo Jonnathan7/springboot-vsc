@@ -12,10 +12,9 @@ INSERT INTO m_user (
     , department_id
     , role
     ) VALUES
-    ('system@co.jp' , 'password' , 'System Administrator' , '2000-01-01' , 21, 1,
-    1, 'ROLE_ADMIN' )
-    , ('user@co.jp' , 'password' , 'User1' , '2000-01-01' , 21, 2, 2, 'ROLE_GEN
-    ERAL' );
+    ('system@co.jp', 'password', 'System Administrator', '2000-01-01', 21, 1, 1, 'ROLE_ADMIN')
+    ,('justindelabarra@outlook.com', 'password7', 'System Administrator', '1997-09-26', 21, 1,  1, 'ROLE_ADMIN')
+    ,('user@co.jp', 'password', 'User1', '2000-01-01', 21, 2, 2, 'ROLE_GENERAL');
 /* Department master */
 INSERT INTO m_department (
     department_id
